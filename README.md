@@ -7,6 +7,7 @@ Twitter bot that posts random lyrics parts of the song you are currently scrobbl
 * Twitter Account for the bot
 * Twitter API Keys
 
+
 * Python 2.7
 * tweepy
 * requests
@@ -29,6 +30,7 @@ Congratulations, you're ready to go. Just let *lyrics.py* run in the background 
 
 ## Example Bot
 [The last.fm account](http://www.lastfm.de/user/3liah)
+
 [The Twitter Bot](https://twitter.com/lyrics_vanita5)
 
 I additionally connected the bot to last.fm with [IFTTT](https://ifttt.com/) to automatically change the 
