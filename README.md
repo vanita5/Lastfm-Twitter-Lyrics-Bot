@@ -6,8 +6,6 @@ Twitter bot that posts random lyrics parts of the song you are currently scrobbl
 * Last.fm API Keys
 * Twitter Account for the bot
 * Twitter API Keys
-
-
 * Python 2.7
 * tweepy
 * requests
@@ -20,7 +18,6 @@ Twitter bot that posts random lyrics parts of the song you are currently scrobbl
     pip install requests
     pip install beautifulsoup4
     pip install git+git://github.com/cbelden/lyricfetch.git@master
-    pip install git+git://github.com/boyska/lyricseek.git@master
 
 * Edit the config.py
 
