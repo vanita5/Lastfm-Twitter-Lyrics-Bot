@@ -111,10 +111,11 @@ while True:
         if song is not None:            
             prnt('Song: ' + str(song) + '\n')
             
-            lyrics = get_lyrics(song.artist, song.song).encode('utf-8')            
+            lyrics = get_lyrics(song.artist, song.song)
             if lyrics is None or len(lyrics) <= 0:
                 continue                
             else:
+                lyrics = lyrics.encode('utf-8')
                 prnt('Lyrics: ' + str(lyrics) + '\n')
                 tweet = get_tweet_from_lyrics(lyrics)
                 prnt('Updating Status: ' + str(tweet) + '\n\n')
