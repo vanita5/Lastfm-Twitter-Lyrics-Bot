@@ -14,14 +14,14 @@
 import re
 import requests
 import bs4
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Comment
 from lyricfetch import LyricClient
 
 def get_lyrics(artist, song):
     lyrics = ''
 
     #Wikia
-    lyrics = get_wikia_lyrics(artist, song)
+    #lyrics = get_wikia_lyrics(artist, song)
     if lyrics is not None and len(lyrics) > 0:
         return lyrics
 
@@ -62,6 +62,10 @@ def get_wikia_lyrics_2(artist, song):
 
     if not lyricbox:
         return None
+
+    # Remove "NewPP limit report" from wiki sites and other HTML comments
+    for element in lyricbox(text=lambda text: isinstance(text, Comment)):
+        element.extract()
 
     # Extract and store lyrics
     lyrics = ''
