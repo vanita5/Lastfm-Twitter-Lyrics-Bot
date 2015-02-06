@@ -64,19 +64,16 @@ def get_wikia_lyrics_2(artist, song):
         return None
 
     # Remove "NewPP limit report" from wiki sites and other HTML comments
-    for element in lyricbox(text=lambda text: isinstance(text, Comment)):
-        element.extract()
+    [s.extract() for s in lyricbox(text=lambda text: isinstance(text, Comment))]
+
+    # Remove all script elements
+    [s.extract() for s in lyricbox('script')]
 
     # Extract and store lyrics
     lyrics = ''
-    last_tag = None
 
     for content in lyricbox.contents:
         tag = content.name
-
-        # If last two tags are None, assume we've read all the lyrics
-        if not tag and not last_tag:
-            break
 
         # Append content if there is no tag (ie. the element is plain text)
         if not tag:
@@ -85,9 +82,6 @@ def get_wikia_lyrics_2(artist, song):
                 continue
                 
             lyrics += content + '\n'
-
-        # Update the last seen tag
-        last_tag = tag
 
     return lyrics
 
