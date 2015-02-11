@@ -120,7 +120,7 @@ while True:
                 tweet = get_tweet_from_lyrics(lyrics)
                 prnt('Updating Status: ' + str(tweet) + '\n\n')
                 
-                result = api.update_status(tweet)
+                result = api.update_status(status=tweet)
                 prnt('Status: \n' + str(result))
 
     except Exception, e:
